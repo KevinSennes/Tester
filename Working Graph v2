@@ -1,0 +1,141 @@
+from networkx import *
+import matplotlib.pyplot as plt
+from random import *
+import random
+import timeit
+
+
+    
+randomlyGeneratedNumber = random.randrange(0,10)
+numberOfGraphs = 2
+g = gnp_random_graph(randomlyGeneratedNumber,0.9,0,True)
+#range, probability of connection, seed, directed
+
+print("Number Of Nodes: " , g.number_of_nodes())
+print("Number Of Edges: " , g.number_of_edges())
+print("First Node & Connection(S)", g.edges(0))
+print("All edges" , g.edges())
+print("All candidates",g.nodes)
+
+
+#a = 0 
+#b = 1
+
+#node = (a,b)
+#print(node)
+#check = g.has_edge(a,b)
+#visited = []
+
+#notConnected=[]
+#print(visited)
+#print(a,b)
+#print("CHECK",check)
+
+
+#def DFS(graph,start):
+#    visited = []
+#    print(visited)
+#    stack = []
+#    stack.append(start)
+#    while stack:
+#        #print("while")
+#        a = stack.pop()
+#        #print(visited)
+#        for i in g.nodes:
+#            #print("FOR")
+#            #print (i)
+#            if i not in visited:
+#                #print("If")
+#                stack.append(i)
+#                
+#        visited.append(a)
+#    print("Path the computer has taken",visited)
+    
+    #return visited
+#DFS(g.nodes, 5)
+        
+#def Exhaustive_search():
+#    i= 0
+#    print(i)
+#    j = 0
+#    for i in range (0,9):
+#        for j in range (0,9):
+#            check = g.has_edge(i,j)
+#            while j-1 < randomlyGeneratedNumber:
+#                j = j +1
+#                if check == (True):#All the nodes the computer thinks are connected.
+#                    #print("HEY")
+#                    a = (i,j)
+#                    print(a)
+#                #else:
+#                    #print("NEY")
+#Exhaustive_search()
+
+***
+def Exhaustive_search():
+    i= 0
+    j = 0
+
+    for i in range(0,11):
+        for j in range(0,11):
+            if g.has_edge(i,j):
+                print ("\n" ,"true: " , i,j , "\n")
+            else:
+                print ("false: " , i,j)
+Exhaustive_search()
+***            
+
+#def traverse():
+#    global a
+#    global b
+#    while a < randomlyGeneratedNumber:
+#        while b < randomlyGeneratedNumber:
+#        #print(node)
+#    print(a,b)
+#            for i in g.edges():
+#                node = (a,b)
+#                print("i",i)
+#                if i == (node):
+#                    print("TRUE")
+#                    visited.append(i)
+#                    b = b+1
+#                
+#                    print(visited)
+#                if i != (node):
+#                    print("FALSE")
+#                    b = b + 1
+#                node = (a,b)
+#                    print("HAS B increased",node)
+#                    print(node)
+#        else:
+#            notConnected.append(i)
+#            print(notConnected)
+#traverse()   
+
+    
+def multi_graph():
+    count = 1
+    while count <= numberOfGraphs:
+        start_time = timeit.default_timer()
+        count = count + 1
+        draw_networkx(g)
+       # draw_networkx(g1)
+        elapsed = timeit.default_timer() - start_time
+        plt.figure(count)
+        print(elapsed)
+        #print(elapsed)
+        print (randomlyGeneratedNumber)
+multi_graph()
+
+
+
+
+#def greedy():
+    #continue 
+#greedy()
+#def exhaustive():
+    #continue
+#exhaustive()
+#def special_case():
+    #continue
+#special_case()
